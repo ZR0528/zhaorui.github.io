@@ -1,8 +1,8 @@
 # Site settings 配置站点
-title: 'your awesome title'
-description: 'your web description'
-keywords: 'your web keywords, another keywords'
-url: 'https://abc.github.io' # your host
+title: '赵睿的博客'
+description: '主要用于记录项目细节、整理算法思路和编程中遇到的问题汇总'
+keywords: '博客, 前端开发'
+url: 'https://zr0528.github.io' # your host
 
 # nav 中文字符空格：&emsp;
 nav: # 最佳体验 六个标签 且最好每个标签不超过4中文字
@@ -16,42 +16,33 @@ nav: # 最佳体验 六个标签 且最好每个标签不超过4中文字
 author: true
 name: '赵睿'
 NickName: 'Zhaorui'
-webtitle: 'your awesome webtitle'
-bio: 'your awesome bio'
+webtitle: '赵睿的个人博客'
+bio: '华中农业大学计科大四在读'
 about: true
-aboutyou: 'your introduction'
+aboutyou: '就业意向为前端开发，了解CSS JS，相较熟悉React框架，在学Vue框架中……'
 portraits: '/assets/profile.jpeg' # your portraits image file path
 
 # SNS
 SNS: true
 SNS-icon: #['Facebook', 'weibo', 'qq', 'github', 'Dribbble', 'Twitter', 'instagram', 'weixin', 'Codepen']
   mail: '2560528886@qq.com'
-  weixin: '' # 你的微信二维码存放的地址
-  qq: '' # 你的qq二维码存放的地址 or http://wpa.qq.com/msgrd?v=3&uin='你的QQ号'&site=qq&menu=yes
-  github: ''
-  Codepen: ''
-  weibo: ''
-  instagram: ''
-  Twitter: ''
-  Dribbble: ''
-  Facebook: ''
-  Google: ''
-  zhihu: ''
-  juejin: ''
-  twitch: ''
+  weixin: '/assets/profile.jpeg' # 你的微信二维码存放的地址
+  qq: 'https://wpa.qq.com/wpa_jump_page?v=3&uin=2560528886&site=qq&menu=yes' # 你的qq二维码存放的地址 or http://wpa.qq.com/msgrd?v=3&uin='你的QQ号'&site=qq&menu=yes
+  github: 'https://github.com/ZR0528'
 
 # 分页
 paginate: 2
 paginatepath: ['page:num']
 
 # since
-footer:
+footer:Zhaorui‘ Blog
   since: 2018
 
 # Markdown
 markdown: kramdown
 kramdown:
   input: GFM
+
 # 代码高亮 使用rouge
 highlighter: rouge
 # 代码高亮主题使用pygments主题: autumn\ default\ emacs\ friendly\ manni\ murphy\ pastie\ perldoc\ tango 任选一个你喜欢的主题名称填在下面的单引号中
@@ -77,11 +68,12 @@ client_secret: ''  # 注册 OAuth Application 后获得的 client_secret
 
 # Share : weibo, qq, wechat, tencent, douban, qzone, linkedin, diandian, facebook, twitter, google
 social-share: true
-social-share-items: ['qq', 'wechat', 'weibo', 'twitter', 'facebook']
+social-share-items: ['qq', 'wechat']
 
 # 百度统计 在baidu-url里填写自己相关的url代码
-baidu: true
+baidu: false
 baidu-url: ''
+
 # 谷歌分析 在google-ID里填写自己在谷歌分析获得的追踪ID
 google: false
 google-ID: ''
