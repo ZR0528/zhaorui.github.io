@@ -35,7 +35,7 @@ paginate: 2
 paginatepath: ['page:num']
 
 # since
-footer:Zhaorui‘ Blog
+footer: Zhaorui‘ Blog
   since: 2018
 
 # Markdown
