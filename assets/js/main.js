@@ -1,41 +1,35 @@
-var leftTab = document.getElementById('left-tab'),
-    rightTab = document.getElementById('right-tab');
+/* ==========================================================================
+   jQuery plugin settings and other scripts
+   ========================================================================== */
 
-// 垃圾方法，该方法必须等页面加载玩才有效
-// window.onload = function(){
-//   btn[0].onmouseover=function() {
-//     leftTab.style.display="block";
-//     leftTab.setAttribute("class","rotateInUpLeft self-animated");
-//   }
-//   btn[0].onmouseout=function() {
-//     leftTab.setAttribute("class","rotateOutDownLeft self-animated");
-//     // leftTab.style.display="none";
-//   }
-//   btn[1].onmouseover=function() {
-//     rightTab.style.display="block";
-//     rightTab.setAttribute("class","rotateInUpRight self-animated");
-//   }
-//   btn[1].onmouseout=function() {
-//     rightTab.setAttribute("class","rotateOutDownRight self-animated");
-//     // leftTab.style.display="none";
-//   }
-//
-// }
+$(document).ready(function(){
 
-function showLeft() {
-  leftTab.style.display="block";
-  leftTab.setAttribute("class","rotateInUpLeft self-animated");
-}
+  // Sticky footer
+  var bumpIt = function() {
+      $('body').css('margin-bottom', $('.page__footer').outerHeight(true));
+    },
+    didResize = false;
 
-function goneLeft() {
-  leftTab.setAttribute("class","rotateOutDownLeft self-animated");
-}
+  bumpIt();
 
-function showRight() {
-  rightTab.style.display="block";
-  rightTab.setAttribute("class","rotateInUpRight self-animated");
-}
+  $(window).resize(function() {
+    didResize = true;
+  });
+  setInterval(function() {
+    if(didResize) {
+      didResize = false;
+      bumpIt();
+    }
+  }, 250);
 
-function goneRight() {
-  rightTab.setAttribute("class","rotateOutDownRight self-animated");
-}
+  // init slimmenu responsive navigation
+  $('#navigation').slimmenu(
+  {
+      collapserTitle: 'Main Menu',
+      animSpeed: 'medium',
+      easingEffect: null,
+      indentChildren: true,
+      expandIcon: '+',
+      collapseIcon: '-'
+  });
+});

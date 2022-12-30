@@ -1,70 +1,48 @@
-<!-- 博文的布局-Layout -->
-<!DOCTYPE html>
-<html>
-<head>
-<!-- 引入head标签 -->
-{% include head.html %}
-{% include androidColor.html %}
-</head>
-<body>
+---
+layout: default
+---
 
-<!-- 顶部锚点 -->
-<a id="htmlup" name="htmlup"></a>
-<!-- 引入博文顶部选项 -->
-{% include post-header.html %}
-<!-- 引入移动下拉选项 -->
-{% include boot.html %}
-<!-- 引入博文顶部样式 -->
-{% include post-title.html %}
-<div class="markdown-body fadeInUp animated">
+{% include breadcrumbs.html %} 
+<div id="main" role="main">
+  {% include topnav.html %}
+  <article class="post" itemscope itemtype="http://schema.org/CreativeWork">
+    {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+    {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+    {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date: "%B %d, %Y" }}">{% endif %}
+    {% if page.modified %}<meta itemprop="dateModified" content="{{ page.modified | date: "%B %d, %Y" }}">{% endif %}
 
-  {% if page.subtitle %}
-    {% if page.color.size==0 or page.color==nil %}
-      <div class="postpage-subtitle" style="border-left: 8px solid #9A85FF; border-right: 8px solid #9A85FF;">
-        {{ page.subtitle }}
-      </div>
-    {% else %}
-      <div class="postpage-subtitle" style="border-left: 8px solid {{ page.color }}; border-right: 8px solid {{ page.color }}">
-        {{ page.subtitle }}
-      </div>
-    {% endif %}
+    <div class="post__inner-wrap">
+      <header>
+        {% if page.title %}<h1 class="post__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
+        
+        {% if page.date %}
+        <p class="post__meta"> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }} </time></p>
+        {% endif %}
+        
+        {% if page.feature-img %}
+    <img class="feature-image" src={{ page.feature-img }} alt="Featured Image"/>
   {% endif %}
+        
+        <span>[
+  {% for tag in page.tags %}
+    {% capture tag_name %}{{ tag }}{% endcapture %}
+    <a href="/tag/{{ tag_name }}"><code class="highligher-rouge"><nobr>{{ tag_name }}</nobr></code>&nbsp;</a>
+  {% endfor %}
+]</span>
+      </header>
+      <section class="post__content" itemprop="text">
+        {{ content }}
+        
+        {% if page.share %}{% include social-share.html %}{% endif %}
+      
+      </section>
 
-  <!-- 文章内容 -->
-  {{ page.content }}
-  <!-- 引入share模块 -->
-  {% include share.html %}
+    </div>
+
+    {% if site.comments and page.comments != false %}
+      {% include comments.html %}
+    {% endif %}
+
+
+  </article>
 </div>
-
-<!-- 底部锚点 -->
-<a id="htmldown" name="htmldown"></a>
-<!-- 引入评论模块 -->
-{% include comment.html %}
-<!-- 引入goto模块 -->
-{% include goto.html %}
-<!-- 引入页面底部模块 -->
-{% include footer.html %}
-
-<!-- 引用wow.js的动画效果 -->
-<script src="/assets/js/wow.js"></script>
-<script>
-    var wow = new WOW({
-        boxClass: 'wow',
-        animateClass: 'animated',
-        // offset: 600,
-        mobile: true,
-        live: true
-    });
-    wow.init();
-</script>
-<!-- 页面刷新回到顶部 -->
-<script>
-    window.onbeforeunload = function(){
-        //刷新后页面自动回到顶部
-        document.documentElement.scrollTop = 0;  //ie下
-        document.body.scrollTop = 0;  //非ie
-    }
-</script>
-<script src="/assets/js/main.js"></script>
-</body>
-</html>
