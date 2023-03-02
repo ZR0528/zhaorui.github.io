@@ -1,8 +1,8 @@
 ---
 layout: post
-title: interview
+title: 中国平安-前端一面-2.26
 categories: 从春节开始的面经
-description: -
+description: 
 keywords: 面经, 前端
 ---
 
