@@ -1,12 +1,13 @@
-<nav class="nav">
-  <div class="nav-container">
-    <a href="{{ site.baseurl }}/">
-      <h2 class="nav-title">{{ site.title }}</h2>
-    </a>
-    <ul>
-      <li><a href="{{ site.baseurl }}/">Posts</a></li>
-      <li><a href="{{ '/tags' | prepend: site.baseurl }}">Tags</a></li>
-      <li><a href="{{ '/about' | prepend: site.baseurl }}">About</a></li>
-    </ul>
-  </div>
-</nav>
+<div class="nav">
+    <div class="nav_nav">
+        <a class="nav_a1" href="{{ site.url }}/">博客首页</a>
+        <a href="{{ site.url }}/categories/">文章合集</a>
+        <!-- <a class="nav_a1" href="{{ site.url }}/wiki/">维基</a> -->
+        <a class="nav_a1" href="{{ site.url }}/about/">关于我</a>
+    </div>
+    <div class="nav_rss">
+        <!-- <a href="{{ site.url }}/sitemap.xml" style="display:none;">SITEMAP</a>
+        <a href="{{ site.url }}/feed.xml" target="_blank">订阅</a> -->
+        <a href="{{ site.url }}/links/">友情链接</a>
+    </div>
+</div>

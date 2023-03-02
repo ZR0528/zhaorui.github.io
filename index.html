@@ -1,4 +1,16 @@
 ---
-layout: home
-title: Home
+layout: default
+title: ZhaoRui的个人博客
+description: Rea's Blog - 项目开发过程 | 学习笔记 | 所思所感随记
+keywords: Rea, zhaorui, ZhaoRui
 ---
+
+<div class="postlist">
+    {% for post in paginator.posts %}
+    <div class="overview">
+        <div class="date">{{ post.date | date: "%b %d, %Y" }}</div>
+        <div class="detail"><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></div>
+    </div>
+    {% endfor %}
+</div>
+{% include pagination.html %}
